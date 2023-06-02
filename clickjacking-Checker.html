@@ -1,0 +1,27 @@
+<html>
+   <head>
+     <title>Clickjacking Test</title>
+   </head>
+   <body>
+     <script>
+       function loadURL() {
+         var urlInput = document.getElementById('urlInput');
+         var url = urlInput.value;
+         
+         var iframe = document.createElement('iframe');
+         iframe.src = url;
+         iframe.width = '100%';
+         iframe.height = '100%';
+         
+         var container = document.getElementById('iframeContainer');
+         container.innerHTML = ''; // Limpiar contenido previo
+         container.appendChild(iframe);
+       }
+     </script>
+     
+     <input type="text" id="urlInput" placeholder="Ingresa la URL">
+     <button onclick="loadURL()">Cargar URL</button>
+     
+     <div id="iframeContainer"></div>
+   </body>
+</html>
